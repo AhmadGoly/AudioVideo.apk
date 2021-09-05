@@ -42,68 +42,101 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myVideoView" />
 
-    <Button
-        android:id="@+id/btnPlayMusic"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="16dp"
-        android:text="Play Music"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPlayVideo" />
-
-    <Button
-        android:id="@+id/btnPauseMusic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
-        android:text="Pause Music"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPlayVideo" />
+        app:layout_constraintTop_toBottomOf="@id/btnPlayVideo">
 
-    <SeekBar
-        android:id="@+id/seekBarVolume"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/btnPlayMusic"
-        app:layout_constraintStart_toEndOf="@+id/btnPauseMusic"
-        app:layout_constraintTop_toBottomOf="@+id/showVolumeTextView" />
+        <Button
+            android:id="@+id/btnPauseMusic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pause Music" />
 
-    <TextView
-        android:id="@+id/showVolumeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Volume"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/btnPlayMusic"
-        app:layout_constraintStart_toEndOf="@+id/btnPauseMusic"
-        app:layout_constraintTop_toBottomOf="@+id/btnPlayVideo" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7">
+
+            <SeekBar
+                android:id="@+id/seekBarVolume"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/showVolumeTextView" />
+
+            <TextView
+                android:id="@+id/showVolumeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Volume"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnPlayMusic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Play Music" />
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
         android:text="Move Back and Forth"
         android:textColor="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/btnPlayMusic"
-        app:layout_constraintStart_toEndOf="@+id/btnPauseMusic"
-        app:layout_constraintTop_toBottomOf="@+id/seekBarVolume" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <SeekBar
         android:id="@+id/seekBarMove"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="10dp"
         android:progressBackgroundTintMode="add"
-        app:layout_constraintEnd_toStartOf="@+id/btnPlayMusic"
-        app:layout_constraintStart_toEndOf="@+id/btnPauseMusic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Goly"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.hanks.htextview.rainbow.RainbowTextView
+        android:id="@+id/rainbowTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        android:text="Imagine Dragons - Zero"
+        android:textSize="17sp"
+        app:colorSpace="150dp"
+        app:colorSpeed="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarMove" />
 </androidx.constraintlayout.widget.ConstraintLayout>

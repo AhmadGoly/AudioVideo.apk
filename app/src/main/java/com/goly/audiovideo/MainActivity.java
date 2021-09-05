@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView showVolumeTextView;
     private SeekBar moveBackAndForthSeekBar;
     private Timer timer;
+    private View rainbowTextView;
 
     @Override
     public void onCompletion(MediaPlayer mediaPlayer) {
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case R.id.seekBarVolume:
                     break;
                 case R.id.seekBarMove:
+                    rainbowTextView.animate().alpha(1).setDuration(1000);
                     mp.start();
                     break;
             }
@@ -83,16 +85,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 myVideoView.start();
                 break;
             case R.id.btnPauseMusic:
+                rainbowTextView.animate().alpha(0).setDuration(1000);
                 mp.pause();
                 timer.cancel();
                 break;
             case R.id.btnPlayMusic:
+                rainbowTextView.animate().alpha(1).setDuration(1000);
                 mp.start();
                 timer = new Timer();
                 timer.scheduleAtFixedRate(new TimerTask() {
                     @Override
                     public void run() {
                         moveBackAndForthSeekBar.setProgress(mp.getCurrentPosition());
+
                     }
                 },0,1000);
                 break;
@@ -111,9 +116,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnPlayMusic = findViewById(R.id.btnPlayMusic);
         btnPauseMusic = findViewById(R.id.btnPauseMusic);
         mp = MediaPlayer.create(this,R.raw.imaginedragonszero);
-
         moveBackAndForthSeekBar = findViewById(R.id.seekBarMove);
         moveBackAndForthSeekBar.setMax(mp.getDuration());
+        rainbowTextView = findViewById(R.id.rainbowTextView);
+
 
         showVolumeTextView = findViewById(R.id.showVolumeTextView);
         volumeSB = findViewById(R.id.seekBarVolume);
